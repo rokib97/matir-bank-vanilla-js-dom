@@ -13,11 +13,19 @@ document.getElementById("deposite-btn").addEventListener("click", function () {
   if (isNaN(depositeEliment.value) == true) {
     return alert("String returns NaN Here so avoid that");
   }
-  const depositeInput = parseFloat(depositeEliment.value);
-  const depoCurValue = parseFloat(depoCurrElement.innerText);
-  const currentBalanceValue = parseFloat(currentBalanceElement.innerText);
-  depoCurrElement.innerText = depoCurValue + depositeInput;
-  currentBalanceElement.innerText = currentBalanceValue + depositeInput;
+  if (
+    depositeEliment.value == 1 ||
+    depositeEliment.value == 2 ||
+    depositeEliment.value == 5
+  ) {
+    const depositeInput = parseFloat(depositeEliment.value);
+    const depoCurValue = parseFloat(depoCurrElement.innerText);
+    const currentBalanceValue = parseFloat(currentBalanceElement.innerText);
+    depoCurrElement.innerText = depoCurValue + depositeInput;
+    currentBalanceElement.innerText = currentBalanceValue + depositeInput;
 
-  depositeEliment.value = "";
+    depositeEliment.value = "";
+  } else {
+    return alert("Only Coins input valid in this Matik Bank");
+  }
 });
